@@ -39,6 +39,14 @@ class RoomSection extends StatelessWidget {
             avtarImage: tovino,
             statusIndicator: true,
           ),
+          Avatar(
+            avtarImage: dulkar,
+            statusIndicator: true,
+          ),
+          Avatar(
+            avtarImage: vinayak,
+            statusIndicator: true,
+          ),
         ],
       ),
     );

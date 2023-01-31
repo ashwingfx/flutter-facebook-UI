@@ -1,14 +1,32 @@
 import 'package:flutter/material.dart';
 
 class HeaderSection extends StatelessWidget {
-  final buttonOne;
+  final String onebtnText;
+  final Color onetnColor;
+  final IconData onebtnIcon;
+
+  final String twobtnText;
+  final Color twotnColor;
+  final IconData twobtnIcon;
+
+/*  final buttonOne;
   final buttonTwo;
   final buttonThree;
 
   HeaderSection(
       {required this.buttonOne,
       required this.buttonTwo,
-      required this.buttonThree});
+      required this.buttonThree});*/
+
+  HeaderSection({
+    required this.onebtnText,
+    required this.onetnColor,
+    required this.onebtnIcon,
+
+    required this.twobtnText,
+    required this.twotnColor,
+    required this.twobtnIcon,
+  });
 
   @override
   Widget verticalDivider = VerticalDivider(
@@ -22,15 +40,17 @@ class HeaderSection extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          buttonOne,
-
+          //buttonOne,
+          headerButton(
+              btnText: onebtnText, btnColor: onetnColor, btnIcon: onebtnIcon),
           verticalDivider,
-
-          buttonTwo,
-
+          headerButton(
+              btnText: twobtnText, btnColor: twotnColor, btnIcon: twobtnIcon),
+          // buttonTwo,
           verticalDivider,
-
-          buttonThree,
+          headerButton(
+              btnText: "hello", btnColor: Colors.grey, btnIcon: Icons.add),
+          // buttonThree,
         ],
       ),
     );

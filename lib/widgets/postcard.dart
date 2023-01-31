@@ -1,8 +1,5 @@
-// ignore_for_file: use_key_in_widget_constructors, avoid_unnecessary_containers, sized_box_for_whitespace, prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:facebookui/assets.dart';
 import 'package:facebookui/sections/headerSection.dart';
-import 'package:facebookui/widgets/button.dart';
 import 'package:flutter/material.dart';
 import 'avatar.dart';
 import 'bluetick.dart';
@@ -14,6 +11,7 @@ class PostCard extends StatelessWidget {
   final String postName;
   final String postHour;
   final bool showBluetick;
+  final String postImageName;
 
   // ignore: prefer_const_constructors_in_immutables
   PostCard({
@@ -21,6 +19,7 @@ class PostCard extends StatelessWidget {
     required this.postName,
     required this.postHour,
     this.showBluetick = false,
+    required this.postImageName,
   });
 
   @override
@@ -30,9 +29,12 @@ class PostCard extends StatelessWidget {
         children: [
           postCardHeader(),
           postCardTitle(),
-          postImage(),
+          postImage(postName: postImageName),
           postCardFooter(),
-          HeaderSection(buttonOne: headerButton(btnText: "Share", btnIcon: Icons.co2_outlined, btnColor: Colors.white10),),
+          Divider(thickness: 1,),
+          HeaderSection(onebtnText: "Share",onetnColor: Colors.grey,onebtnIcon: Icons.thumb_up_alt,
+            twobtnText: "Photos", twotnColor: Colors.green,twobtnIcon: Icons.comment,
+          ),
         ],
       ),
     );
@@ -149,10 +151,10 @@ class PostCard extends StatelessWidget {
     );
   }
 
-  Widget postImage() {
+  Widget postImage({required postName,}) {
     return Container(
       child: Image.asset(
-        pushpa,
+        postName,
         fit: BoxFit.cover,
       ),
     );
